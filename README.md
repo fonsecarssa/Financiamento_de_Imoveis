@@ -9,7 +9,7 @@ O projeto é **incremental**, sendo construído conforme o progresso das semanas
 
 ## 🧭 Visão Geral do Projeto
 
-O sistema final (entrega na **Semana 08**) deverá contemplar as seguintes funcionalidades e conceitos:
+O sistema final deverá contemplar as seguintes funcionalidades e conceitos:
 
 ### ⚙️ Conceitos de POO
 - Classes, Objetos, Métodos e Atributos  
