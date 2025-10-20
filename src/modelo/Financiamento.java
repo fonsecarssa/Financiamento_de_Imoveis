@@ -4,7 +4,7 @@ public class Financiamento{
 
     private double valorImovel;
     private int prazoFinanciamento;
-    public double taxaJurosAnual;
+    private double taxaJurosAnual;
 
     private double pagamentoMensal;
 
@@ -14,16 +14,21 @@ public class Financiamento{
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
-    public Financiamento(){
-        //none só pra rodar liso sem problema
+    public Financiamento() {
     }
 
     public void calcularPagamentoMensal(){
-        int prazoMeses = prazoFinanciamento * 12;
-        double taxaJurosMensal = taxaJurosAnual / 12;
+        double taxaMensal = this.taxaJurosAnual / 12.0;
+        int prazoMeses = this.prazoFinanciamento * 12;
 
-        double jurosTotal = valorImovel * taxaJurosAnual;
-        this.pagamentoMensal = (valorImovel + jurosTotal) / prazoMeses;
+        if (taxaMensal == 0) {
+            this.pagamentoMensal = this.valorImovel / prazoMeses;
+        } else {
+            double fatorPotencia = Math.pow(1 + taxaMensal, prazoMeses);
+            double num = taxaMensal * fatorPotencia;
+            double den = fatorPotencia - 1;
+            this.pagamentoMensal = this.valorImovel * (num / den);
+        }
     }
 
     public double totalPagamento(){
@@ -32,6 +37,30 @@ public class Financiamento{
 
     public double getPagamentoMensal(){
         return this.pagamentoMensal;
+    }
+
+
+    public void setValorImovel(double valorImovel) {
+        this.valorImovel = valorImovel;
+    }
+
+    public void setTaxaJurosAnual(double taxaJurosAnual) {
+        this.taxaJurosAnual = taxaJurosAnual;
+    }
+
+    public void setPrazoFinanciamento(int prazoFinanciamento) {
+        this.prazoFinanciamento = prazoFinanciamento;
+    }
+
+    public double getValorImovel(){
+        return this.valorImovel;
+    }
+
+    public void exibirDadosFinanciamento(){
+        this.calcularPagamentoMensal();
+        System.out.printf("Valor total do financiamento: R$ %.2f ", this.totalPagamento());
+        System.out.println();
+        System.out.printf("Valor do imóvel: R$ %.2f ", getValorImovel());
     }
 
 

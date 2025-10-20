@@ -19,8 +19,10 @@ public class Main{
 
         double total =novoImovel.totalPagamento();
 
+        //provavelmente será removido no proximo commit, nada decidido ainda.
+
         System.out.println("\n--- Resultado do Financiamento ---");
-        System.out.printf(" Valor do Imovel: R$ %.1f\n", novoImovel.valorImovel);
+        System.out.printf(" Valor do Imovel: R$ %.1f\n", novoImovel.getValorImovel());
         System.out.printf(" Pagamento Mensal: R$ %.1f\n", novoImovel.getPagamentoMensal());
         System.out.printf(" Pagamento Total: R$ %.1f\n", total);
         System.out.println("----------------------------------");
