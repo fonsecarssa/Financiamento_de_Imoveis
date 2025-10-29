@@ -6,12 +6,14 @@ import java.util.Scanner;
 
 
 public class InterfaceUsuario{
-    private Scanner input = new Scanner(System.in);
+    private Scanner scanner;
 
     private Financiamento imovel;
 
-    public InterfaceUsuario(Financiamento Financiamento){
+    public InterfaceUsuario(Financiamento Financiamento, Scanner scanner ){
+
         this.imovel = Financiamento;
+        this.scanner = scanner;
     }
 
     // inserir valor do imovel
@@ -20,14 +22,18 @@ public class InterfaceUsuario{
 
         do {
             System.out.print("Digite o valor do imovel:  ");
-            imovelVal = input.nextDouble();
-            if (imovelVal <= 0){
-                System.out.println("Valor inválido.Digite novamente.");
+
+            imovelVal = this.scanner.nextDouble();
+
+            if (imovelVal <= 0) {
+                System.out.println("Valor inválido. O valor deve ser maior que zero. Digite novamente.");
             }
         } while(imovelVal <= 0);
 
-        imovel.setValorImovel(imovelVal);
-    }
+        this.imovel.setValorImovel(imovelVal);
+        this.scanner.nextLine();
+        }
+
 
     // inserir o prazo de financiamento
     public void inserirPrazoFinanciamento(){
@@ -35,7 +41,7 @@ public class InterfaceUsuario{
 
         do{
             System.out.print("Prazo de financiamento (em anos) :  ");
-            financiamentoPraz = input.nextInt();
+            financiamentoPraz = scanner.nextInt();
 
             if (financiamentoPraz <=0){
                 System.out.println("Valor inválido.Digite novamente.");
@@ -43,28 +49,32 @@ public class InterfaceUsuario{
         } while (financiamentoPraz <=0);
 
         imovel.setPrazoFinanciamento(financiamentoPraz);
+        this.scanner.nextLine();
 
     }
 
     // inserir taxa de juros
     public void inserirTaxaAnual(){
         double taxAnual;
-
+        // verificar se a taxa é muito alta
         do{
             System.out.print("Taxa de juros: ");
-            taxAnual = input.nextDouble();
+            taxAnual = scanner.nextDouble();
             if (taxAnual<=0){
                 System.out.println("Valor inválido.Digite novamente.");
             }
         } while(taxAnual <= 0);
 
         imovel.setTaxaJurosAnual(taxAnual);
+        this.scanner.nextLine();
     }
 
-    public static void main(String[] args) {
-        Financiamento novoFinanciamento = new Financiamento();
 
-        InterfaceUsuario interfaceApp = new InterfaceUsuario(novoFinanciamento);
+    public static void main(String[] args) {
+        Scanner Scanner1 = new Scanner(System.in);
+        Financiamento novoFinanciamento = new Financiamento(0,0,0);
+
+        InterfaceUsuario interfaceApp = new InterfaceUsuario(novoFinanciamento, Scanner1);
 
 
         interfaceApp.inserirValorImovel();
@@ -72,5 +82,6 @@ public class InterfaceUsuario{
         interfaceApp.inserirPrazoFinanciamento();
 
         novoFinanciamento.exibirDadosFinanciamento();
+        Scanner1.close();
     }
 }
