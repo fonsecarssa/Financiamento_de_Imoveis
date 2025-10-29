@@ -58,7 +58,7 @@ public class InterfaceUsuario{
         double taxAnual;
         // verificar se a taxa é muito alta
         do{
-            System.out.print("Taxa de juros: ");
+            System.out.print("Taxa de juros MENSAL (em %): ");
             taxAnual = scanner.nextDouble();
             if (taxAnual<=0){
                 System.out.println("Valor inválido.Digite novamente.");
