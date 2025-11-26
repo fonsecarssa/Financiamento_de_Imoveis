@@ -1,8 +1,8 @@
 package util;
 
 import modelo.Financiamento;
-
 import java.util.Scanner;
+
 
 
 public class InterfaceUsuario{
@@ -10,78 +10,142 @@ public class InterfaceUsuario{
 
     private Financiamento imovel;
 
-    public InterfaceUsuario(Financiamento Financiamento, Scanner scanner ){
 
-        this.imovel = Financiamento;
-        this.scanner = scanner;
-    }
 
     // inserir valor do imovel
-    public void inserirValorImovel(){
-        double imovelVal;
+    public static double inserirValorImovel(Scanner scanner){
+        double imovelVal = 0.0;
+        boolean valid = false;
 
         do {
             System.out.print("Digite o valor do imovel:  ");
 
-            imovelVal = this.scanner.nextDouble();
-
-            if (imovelVal <= 0) {
-                System.out.println("Valor inválido. O valor deve ser maior que zero. Digite novamente.");
+            try{
+                imovelVal = scanner.nextDouble();
+                if (imovelVal <= 0) {
+                    System.out.println("Valor inválido. O valor deve ser maior que zero. Digite novamente.");
+                } else{
+                    valid = true;
+                }
+            } catch (java.util.InputMismatchException e){
+                System.err.println("ERRO: DIGITE APENAS NUMEROS");
+                scanner.nextLine();
             }
-        } while(imovelVal <= 0);
 
-        this.imovel.setValorImovel(imovelVal);
-        this.scanner.nextLine();
-        }
+        } while(!valid);
+
+
+        scanner.nextLine();
+        return imovelVal;
+    }
 
 
     // inserir o prazo de financiamento
-    public void inserirPrazoFinanciamento(){
-        int financiamentoPraz;
+    public static int  inserirPrazoFinanciamento(Scanner scanner){
+        int financiamentoPraz = 0;
+        boolean valid = false;
 
         do{
             System.out.print("Prazo de financiamento (em anos) :  ");
-            financiamentoPraz = scanner.nextInt();
 
-            if (financiamentoPraz <=0){
-                System.out.println("Valor inválido.Digite novamente.");
+            try{
+                financiamentoPraz = scanner.nextInt();
+
+                if (financiamentoPraz <=0){
+                    System.out.println("Valor inválido.Digite novamente.");
+                } else{
+                    valid = true;
+                }
+            } catch (java.util.InputMismatchException e){
+                System.err.println("ERRO: ENTRADA INVÁLIDA, DIGITE APENAS NUMEROS INTEIROS!");
+                scanner.nextLine();
             }
-        } while (financiamentoPraz <=0);
 
-        imovel.setPrazoFinanciamento(financiamentoPraz);
-        this.scanner.nextLine();
+        } while (!valid);
+
+        scanner.nextLine();
+        return financiamentoPraz;
 
     }
 
     // inserir taxa de juros
-    public void inserirTaxaAnual(){
-        double taxAnual;
+    public static double inserirTaxaAnual(Scanner scanner){
+        double taxAnual = 0.0;
+        boolean valid = false;
         // verificar se a taxa é muito alta
         do{
-            System.out.print("Taxa de juros MENSAL (em %): ");
-            taxAnual = scanner.nextDouble();
-            if (taxAnual<=0){
-                System.out.println("Valor inválido.Digite novamente.");
-            }
-        } while(taxAnual <= 0);
 
-        imovel.setTaxaJurosAnual(taxAnual);
-        this.scanner.nextLine();
+            try{
+                System.out.print("Taxa de juros MENSAL (em %): ");
+                taxAnual = scanner.nextDouble();
+                if (taxAnual<=0){
+                    System.out.println("Valor inválido.Digite novamente.");
+                } else{
+                    valid = true;
+                }
+            } catch (java.util.InputMismatchException e){
+                System.err.println("ERRO: ENTRADA INVÁLIDA, DIGITE APENAS NUMEROS!");
+                scanner.nextLine();
+                valid = false;
+            }
+
+        } while(taxAnual <=0 || !valid);
+
+
+        scanner.nextLine();
+        return taxAnual;
     }
 
 
-    public static void main(String[] args) {
-        Scanner Scanner1 = new Scanner(System.in);
-        Financiamento novoFinanciamento = new Financiamento(0,0,0);
+    public static double inserirAreaConstruida(Scanner scanner){
+        double areaConstruida1 = 0;
+        boolean valid = false;
+        do{
+            System.out.println("Área construída: ");
+            try{
+                areaConstruida1 = scanner.nextInt();
 
-        InterfaceUsuario interfaceApp = new InterfaceUsuario(novoFinanciamento, Scanner1);
+                if (areaConstruida1 <=0){
+                    System.out.println("Valor inválido. Digite novamente.");
+                    valid = false;
+                } else{
+                    valid = true;
+                }
+            } catch (java.util.InputMismatchException e ){
+                System.err.println("ERRO: ENTRADA INVÁLIDA, DIGITE APENAS NUMEROS.");
+                valid = false;
+                scanner.nextLine();
+            }
 
+        } while (!valid);
 
-        interfaceApp.inserirValorImovel();
-        interfaceApp.inserirTaxaAnual();
-        interfaceApp.inserirPrazoFinanciamento();
+        scanner.nextLine();
+        return areaConstruida1;
+    }
 
-        novoFinanciamento.exibirDadosFinanciamento();
-        Scanner1.close();
+    public static double inserirAreaTerreno(Scanner scanner){
+        int areaTerreno1 = 0;
+        boolean valid = false;
+
+        do{
+            System.out.println("Área do terreno: ");
+            try{
+                areaTerreno1 = scanner.nextInt();
+
+                if (areaTerreno1 <=0){
+                    System.out.println("Valor inválido. Digite novamente");
+                    valid = false;
+                } else{
+                    valid = true;
+                }
+            } catch(java.util.InputMismatchException e ){
+                System.err.println("ERRO: ENTRADA INVÁLIDA, DIGITE APENAS NUMEROS.");
+                scanner.nextLine();
+
+            }
+        } while (!valid);
+
+        scanner.nextLine();
+        return areaTerreno1;
     }
 }
