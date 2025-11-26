@@ -13,7 +13,7 @@ O sistema final deverá contemplar as seguintes funcionalidades e conceitos:
 
 ### ⚙️ Conceitos de POO
 - Classes, Objetos, Métodos e Atributos  
-- Polimorfismo e Herança
+- Polimorfismo e Herança  
 - Classes Abstratas  
 - Encapsulamento  
 - Tratamento de Exceções  
