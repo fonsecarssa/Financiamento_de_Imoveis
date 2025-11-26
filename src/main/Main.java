@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Locale;
 
-public class Main {
+public class Main{
 
     private static final String ARQUIVO_TEXTO = "financiamentos.txt";
     private static final String ARQUIVO_SERIALIZADO = "financiamentos.ser";
