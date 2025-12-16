@@ -65,6 +65,6 @@ O programa armazena os dados dos financiamentos para comprovar a persistência e
 
 ---
 
-## 🤝 Autor
+##  Autor
 
 **[Raissa dos Santos Fonseca]** - *[https://www.linkedin.com/in/raissa-fonseca--/]*
