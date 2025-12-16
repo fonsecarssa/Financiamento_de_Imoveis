@@ -1,12 +1,12 @@
-# 🏦 Sistema de Simulação de Financiamento de Imóveis (POO em Java)
+#  Sistema de Simulação de Financiamento de Imóveis (POO em Java)
 
-## ✨ Visão Geral
+##  Visão Geral
 
 Este projeto, desenvolvido para a disciplina de **Programação Orientação a Objetos (POO)**, simula o processo de financiamento para diferentes tipos de imóveis (Casas, Apartamentos e Terrenos). O objetivo principal foi aplicar e demonstrar conceitos avançados de POO, como herança, polimorfismo, classes abstratas e tratamento de exceções, utilizando a linguagem **Java**.
 
 ---
 
-## ⚙️ Conceitos de POO Aplicados
+## Conceitos de POO Aplicados
 
 O projeto foi estruturado para demonstrar o domínio dos seguintes pilares da Programação Orientada a Objetos:
 
@@ -17,7 +17,7 @@ O projeto foi estruturado para demonstrar o domínio dos seguintes pilares da Pr
 
 ---
 
-## 💰 Funcionalidades Principais do Sistema
+##  Funcionalidades Principais do Sistema
 
 O sistema executa a simulação e persistência de dados.
 
@@ -33,9 +33,9 @@ O cálculo da parcela e do valor total é baseado em:
 
 | Tipo de Imóvel | Diferencial no Cálculo |
 | :--- | :--- |
-| 🏠 **Casa** | Acrescenta uma taxa fixa mensal na parcela e aplica uma regra de exceção para limitar o aumento dos juros. |
-| 🏢 **Apartamento** | Não possui regras de juros adicionais, mas armazena e processa o número do andar. |
-| 🌳 **Terreno** | Calcula juros com base no tipo de zona (ex: residencial vs. comercial). |
+|  **Casa** | Acrescenta uma taxa fixa mensal na parcela e aplica uma regra de exceção para limitar o aumento dos juros. |
+|  **Apartamento** | Não possui regras de juros adicionais, mas armazena e processa o número do andar. |
+|  **Terreno** | Calcula juros com base no tipo de zona (ex: residencial vs. comercial). |
 
 ### 2. Persistência de Dados
 
@@ -46,14 +46,14 @@ O programa armazena os dados dos financiamentos para comprovar a persistência e
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 * **Linguagem:** Java
 * **Ferramentas:** Classes `java.io.*` e `java.util.*` (Scanner, Locale, Listas)
 
 ---
 
-## 🚀 Como Rodar o Projeto
+##  Como Rodar o Projeto
 
 1.  **Clone o Repositório:**
     ```bash
